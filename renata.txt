@@ -1,0 +1,7 @@
+- le cuesta esquematizarlo
+- problemas con windows
+- cargarle datos falsos o no
+- integrar back-front dudas de como hacerlo.
+- tiene problemas para correr la semilla
+- cuando quiere hacer nueva conexion le sucede... tanto con versiones viejas como nuevas aparece el mismo cartel.
+- borrar de mongodb las colecciones que no corresponden
