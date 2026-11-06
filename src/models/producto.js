@@ -39,6 +39,16 @@ const productoSchema = new mongoose.Schema({
         required: [true, "La categoría es obligatoria"]
     },
 
+    imagen: {
+        type: String,
+        default: ""
+    },
+
+    destacado: {
+        type: Boolean,
+        default: false
+    },
+
     estado: {
         type: Boolean,
         default: true
