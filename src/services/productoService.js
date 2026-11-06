@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Categoria from "../models/categoria.js";
 import Producto from "../models/producto.js";
 import { ErrorApp } from "../utils/ErrorApp.js";
@@ -34,22 +35,33 @@ export const obtenerProductoIdService = async (id) => {
     return await Producto.findById(id).populate("categoria_id", POPULATE_CATEGORIA);
 };
 
-// Verificar que exista la categoría
-export const verificarCategoriaService = async (categoriaId) => {
-    if (!categoriaId) {
+// Verificar que exista la categoría (acepta tanto el ObjectId de Mongo como el nombre ej: "AW26")
+export const verificarCategoriaService = async (categoriaIdentificador) => {
+    if (!categoriaIdentificador) {
         throw new ErrorApp("La categoría es obligatoria", 400);
     }
 
-    const existe = await Categoria.exists({ _id: categoriaId });
-
-    if (!existe) {
-        throw new ErrorApp(`No existe ninguna categoría con el ID ${categoriaId}`, 400);
+    // 1. Si enviaron un ObjectId válido de Mongo
+    if (mongoose.Types.ObjectId.isValid(categoriaIdentificador)) {
+        const existe = await Categoria.findById(categoriaIdentificador);
+        if (existe) return existe._id;
     }
+
+    // 2. Si enviaron el nombre de la categoría (ej: "AW26", "ESENCIALES", "COMUNIDAD")
+    const porNombre = await Categoria.findOne({
+        nombre: { $regex: new RegExp(`^${categoriaIdentificador}$`, "i") }
+    });
+    if (porNombre) {
+        return porNombre._id;
+    }
+
+    throw new ErrorApp(`No existe ninguna categoría con el ID o nombre "${categoriaIdentificador}"`, 400);
 };
 
 // POST: crear producto
 export const crearProductoService = async (datos = {}) => {
-    await verificarCategoriaService(datos.categoria_id);
+    const categoriaIdValido = await verificarCategoriaService(datos.categoria_id);
+    datos.categoria_id = categoriaIdValido;
 
     const producto = await Producto.create(datos);
     return await producto.populate("categoria_id", POPULATE_CATEGORIA);
@@ -57,9 +69,8 @@ export const crearProductoService = async (datos = {}) => {
 
 // PATCH: actualizar producto
 export const actualizarProductoService = async (id, datos = {}) => {
-    // Solo verificamos la categoría si se envió en la actualización.
     if (datos.categoria_id !== undefined) {
-        await verificarCategoriaService(datos.categoria_id);
+        datos.categoria_id = await verificarCategoriaService(datos.categoria_id);
     }
 
     return await Producto.findByIdAndUpdate(id, datos, {

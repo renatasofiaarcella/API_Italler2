@@ -42,7 +42,7 @@ await Carrito.syncIndexes();
 await Pedido.syncIndexes();
 
 // 1. Categorías oficiales de Incorrecta Taller
-const [aw26, esenciales] = await Categoria.create([
+const [aw26, esenciales, comunidad] = await Categoria.create([
     {
         nombre: "AW26",
         tipo: "coleccion",
@@ -52,6 +52,11 @@ const [aw26, esenciales] = await Categoria.create([
         nombre: "ESENCIALES",
         tipo: "basicos",
         descripcion: "Prendas clásicas de diseño independiente y series limitadas"
+    },
+    {
+        nombre: "COMUNIDAD",
+        tipo: "especial",
+        descripcion: "Línea especial y colaboraciones de la comunidad"
     }
 ]);
 

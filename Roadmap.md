@@ -6,4 +6,3 @@
             │
 [ Fase 4: El Puente ]      ──► Conexión con React (cómo consume el frontend esta API)
 
-//modificar la seed.js
