@@ -47,3 +47,5 @@ app.use(manejarErrores);
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
+
+export default app;

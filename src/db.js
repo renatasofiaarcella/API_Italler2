@@ -8,6 +8,8 @@ export const esAtlas = MONGO_URI.startsWith("mongodb+srv://")
 export const uriSinPassword = () => MONGO_URI.replace(/\/\/[^@/]*@/, "//")
 
 export const conectarDB = async () => {
+
+   if (mongoose.connection.readyState >= 1) return;
    try {
       await mongoose.connect(MONGO_URI)
       console.log(`MongoDB conectado. base "${mongoose.connection.name}"`)
@@ -16,3 +18,4 @@ export const conectarDB = async () => {
       process.exit(1)
    }
 }
+
