@@ -8,8 +8,6 @@ https://github.com/renatasofiaarcella/incorrecta_taller_final.git
 https://github.com/renatasofiaarcella/API_Italler2.git
 
 
-(esta todo en publico) Adjunto .env https://drive.google.com/drive/folders/1bZueejV7aTrpAY7cQ7vAdCL7fprziQw8?usp=sharing
-( publico para cualquier persona que se le envie en link, estan los dos .env de cada proyecto)
 
 Para ver en Vercel:
 
