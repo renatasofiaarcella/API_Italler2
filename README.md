@@ -1,5 +1,29 @@
 # Incorrecta Taller — API RESTful (TP Final Backend)
 
+(Frontend integrado)
+https://github.com/renatasofiaarcella/incorrecta_taller_final.git
+
+
+(API RESTfull  Backend)
+https://github.com/renatasofiaarcella/API_Italler2.git
+
+
+(esta todo en publico) Adjunto .env https://drive.google.com/drive/folders/1bZueejV7aTrpAY7cQ7vAdCL7fprziQw8?usp=sharing
+( publico para cualquier persona que se le envie en link, estan los dos .env de cada proyecto)
+
+Para ver en Vercel:
+
+
+Vercel api : https://api-italler2.vercel.app
+Vercel Front : https://incorrecta-taller-final-rhwf.vercel.app
+
+Backet en Supabase
+
+https://tiizyunffonjcnuveras.supabase.co/rest/v1/
+
+Swagger:
+http://localhost:3000/api-docs/
+
 API RESTful para el e-commerce de **Incorrecta Taller**. Administra catálogo de productos, categorías y usuarios, con autenticación JWT, carrito y control de stock atómico.
 
 ---
