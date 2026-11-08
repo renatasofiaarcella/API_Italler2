@@ -101,4 +101,10 @@ npm run dev              # Iniciar servidor en http://localhost:3000
 
 ## Funcionalidades
 * **Implementadas:** CRUD completo, capa de servicios, `populate`, contraseñas con bcrypt, JWT, roles (RBAC), carrito, stock atómico, MongoDB Atlas en la nube y Vercel serverless.
-* **A futuro:** Subida de imágenes en la nube (Cloudinary/Firebase), documentación Swagger y tests automatizados.
+* Subida de imágenes en la nube Supabase ,
+https://tiizyunffonjcnuveras.supabase.co/rest/v1/
+
+* documentación Swagger ubicada en la carpeta docs
+* tests automatizados. Sumado en la carpeta tests.
+* ✔ API Status: El servidor responde con código 200 y mensaje de bienvenida
+✔ Productos: El endpoint GET /api/productos devuelve una lista válida 
