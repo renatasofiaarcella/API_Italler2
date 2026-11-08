@@ -1,3 +1,6 @@
+# Esta es la primera revision que realizo el profe, la dejo guardada como parte del proceso de aprendizaje
+
+
 # Revisión del proyecto API ITaller2
 
 Revisión estática de `consigna.txt`, `renata.txt` y todo `src/`. No se ejecutó el código.
